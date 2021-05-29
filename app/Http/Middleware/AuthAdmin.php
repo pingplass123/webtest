@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Http\Request;
 
@@ -16,11 +17,11 @@ class AuthAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        if(auth()->user()->roleID == 2)
-        {
-           return view('admin.dashboard');
-        }
-        return redirect('user/search');
+        // if(auth()->user()->roleID == 2)
+        // {
+           return $next($request);
+        // }
+        // return redirect('user/search');
          
     }
 }
