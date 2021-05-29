@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Middleware;
-
 use Closure;
 use Illuminate\Http\Request;
 
@@ -19,9 +18,9 @@ class AuthAdmin
 
         if(auth()->user()->roleID == 2)
         {
-           return $next($request);
+           return view('admin.dashboard');
         }
-        return redirect('user/search')->with('error', "you don't have admin");
+        return redirect('user/search');
          
     }
 }
