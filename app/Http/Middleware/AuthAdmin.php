@@ -17,11 +17,15 @@ class AuthAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        // if(auth()->user()->roleID == 2)
-        // {
+        if(auth()->user()->roleID == 2)
+        {
            return $next($request);
-        // }
-        // return redirect('user/search');
+        }
+        else if(auth()->user()->roleID == 1)
+        {
+            return redirect('user/search');
+        }
+        
          
     }
 }
